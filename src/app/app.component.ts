@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email], this.forbiddenEmails.bind(this)
       ),
       hobbies: new FormGroup({
-        name: new FormControl('',),
+        name: new FormControl(''),
         duration: new FormControl('', [Validators.pattern('^[0-9]*$')])
       }),
       hobby: new FormArray([], Validators.required)
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     const hobbiesControl = this.userForm.get('hobby') as FormArray;
     const name = new FormGroup({
       name: new FormControl(this.userForm.get('hobbies').get('name').value),
-      duration: new FormControl(this.userForm.get('hobbies').get('duration').value)
+      duration: new FormControl(this.userForm.get('hobbies').get('duration').value + ' months')
     });
     hobbiesControl.push(name);
     this.userForm.get('hobbies').reset();
