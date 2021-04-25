@@ -82,7 +82,7 @@
         <input matInput placeholder="email" formControlName="email">
         <mat-hint class="error"
                   *ngIf="!userForm.get('email').valid && userForm.get('email').touched">
-          {{((userForm.controls['email'].errors)?.emailIsForbidden) ? "имейл занят" : 'Поле является обязательным'}}
+          {{(userForm.controls['email'].errors?.emailIsForbidden) ? 'имейл занят' : 'Поле является обязательным'}}
         </mat-hint>
       </mat-form-field>
     </div>
